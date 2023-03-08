@@ -53,7 +53,7 @@ struct Login: View {
             VStack{
                 
                 Button{
-                    print("3")
+                    (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.changeRootViewController(TabBarView())
 
                 }label: {
                     Text("login").padding().font(.title).foregroundColor(.white).frame(maxWidth: .infinity)
