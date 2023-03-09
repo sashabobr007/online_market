@@ -31,7 +31,6 @@ struct SignIn: View {
                     self.showAction = false
                 }),
                 .destructive(Text("Remove"), action: {
-                    //print(uiImage?.pngData()?.base64EncodedData(options: .endLineWithLineFeed))
                     self.showAction = false
                     self.uiImage = nil
                 })
@@ -45,8 +44,6 @@ struct SignIn: View {
             VStack{
                 
                 Text("Registration").frame(minWidth: 0, maxWidth: .infinity, minHeight: 100).background(.green).font(.title).foregroundColor(.white).fontWeight(.bold)
-               // Color(.systemGreen).ignoresSafeArea().frame(height: 50)
-             
 
             }.frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: 300, alignment: .topLeading)
             
@@ -54,19 +51,20 @@ struct SignIn: View {
                 
                 
                 TextField(
-                    "Login",
-                    text: $login)
-                .autocapitalization(.none)
-                .disableAutocorrection(true)
-                .border(Color(UIColor.separator)).padding().textFieldStyle(.roundedBorder)
-                
-                SecureField(
-                    "Password",
-                    text: $password
-                ) {
-                    //handleLogin(username: login, password: password)
-                }
-                .border(Color(UIColor.separator)).textFieldStyle(.roundedBorder).padding()
+                    "",
+                    text: $login, prompt: Text("Login").foregroundColor(.gray)).foregroundColor(.black).autocorrectionDisabled().textInputAutocapitalization(.none)
+                .frame(height: 50)
+                    .padding([.horizontal], 10)
+                    .overlay(RoundedRectangle(cornerRadius: 20).stroke(Color.gray))
+                    .padding([.horizontal, .vertical])
+            
+            SecureField(
+                "",
+                text: $password, prompt: Text("Password").foregroundColor(.gray)
+            ).frame(height: 50)
+                .padding([.horizontal], 10)
+                .overlay(RoundedRectangle(cornerRadius: 20).stroke(Color.gray))
+                .padding([.horizontal])
                 
                 DatePicker(
                     "Дата рождения",
