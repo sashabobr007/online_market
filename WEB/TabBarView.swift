@@ -13,10 +13,17 @@ struct TabBarView: View {
     
     var body: some View {
         TabView (selection: $selectedTab){
-            Home().tag("1").tabItem({
-                Image(systemName: "house")
-                Text("Главная")
-            })
+            if LoginUser.login == "Admin"{
+                AddProduct().tag("1").tabItem({
+                    Image(systemName: "plus.app.fill")
+                    Text("Новый товар")})
+            }
+//            else{
+//                Home().tag("1").tabItem({
+//                    Image(systemName: "house")
+//                    Text("Главная")
+//                })
+//            }
             Catalog().tag("2").tabItem({
                 Image(systemName: "rectangle.and.text.magnifyingglass")
                 Text("Каталог")
@@ -27,11 +34,11 @@ struct TabBarView: View {
                 Text("Корзина")
 
             })
-            Like().tag("4").tabItem({
-                Image(systemName: "heart")
-                Text("Избранное")
-
-            })
+//            Like().tag("4").tabItem({
+//                Image(systemName: "heart")
+//                Text("Избранное")
+//
+//            })
             Profile().tag("5").tabItem({
                 Image(systemName: "person")
                 Text("Профиль")
