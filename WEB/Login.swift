@@ -15,37 +15,31 @@ struct Login: View {
 
     var body: some View {
         VStack{
-            VStack{
+            
                 
-                Text("E - MarKet").frame(minWidth: 0, maxWidth: .infinity, minHeight: 100).background(.green).font(.title).foregroundColor(.white).fontWeight(.bold)
+            Text("Eka").frame(minWidth: 0, maxWidth: .infinity, minHeight: 100).font(.custom("Arial", size: 150)).foregroundColor(Color(red: 0.25, green: 0.55, blue: 1)).fontWeight(.bold).padding(.top)
+            Text("Market").frame(minWidth: 0, maxWidth: .infinity, minHeight: 100).font(.custom("Arial", size: 90)).foregroundColor(Color(red: 0.25, green: 0.55, blue: 1)).fontWeight(.bold).padding(.bottom, 20)
              
 
-            }.frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: 300, alignment: .topLeading)
             
             VStack{
                                     
                     TextField(
                         "",
-                        text: $login, prompt: Text("Login").foregroundColor(.gray)).foregroundColor(.black).autocorrectionDisabled().textInputAutocapitalization(.none)
-                    .frame(height: 50)
-                        .padding([.horizontal], 10)
-                        .overlay(RoundedRectangle(cornerRadius: 20).stroke(Color.gray))
-                        .padding([.horizontal, .vertical])
+                        text: $login, prompt: Text(Image(systemName: "person")) + Text("  login").foregroundColor(.gray)).textFieldStyle(OvalTextFieldStyle()).autocorrectionDisabled().textInputAutocapitalization(.none).padding([.horizontal]).padding(.vertical, 47)
                 
                 SecureField(
                     "",
-                    text: $password, prompt: Text("Password").foregroundColor(.gray)
-                ).frame(height: 50)
-                    .padding([.horizontal], 10)
-                    .overlay(RoundedRectangle(cornerRadius: 20).stroke(Color.gray))
-                    .padding([.horizontal])
+                    text: $password, prompt: Text(Image(systemName: "person")) + Text( "  password").foregroundColor(.gray).font(.custom("Oswald-Regular", size: 16))
+                ).textFieldStyle(OvalTextFieldStyle()).padding([.horizontal])
+//                ).frame(height: 50)
+//                    .padding([.horizontal], 10).clipShape(Capsule())
+//                    .overlay(RoundedRectangle(cornerRadius: 5).stroke(Color.gray))
+//                    .padding([.horizontal])
                 
              
             }.frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity, alignment: .top)
             
-            
-            VStack{
-                
                 Button{
                     if login == "Admin"{
                         LoginUser.login = login
@@ -72,19 +66,28 @@ struct Login: View {
 
                     
                 }label: {
-                    Text("login").padding().font(.title).foregroundColor(.white).frame(maxWidth: .infinity)
-                }.background(Color(cgColor: UIColor.systemGreen.cgColor)).clipShape(Capsule()).padding(.all).frame(width: 380, height: 40, alignment: .leading)
+                    Text("войти").padding().font(.title).foregroundColor(.white).frame(maxWidth: .infinity, minHeight: 0, maxHeight: .infinity).frame(height: 38)
+                }.background(Color(uiColor: hexStringToUIColor(hex: "408CFF"))).clipShape(RoundedRectangle(cornerRadius: 2)).frame(width: 232)
                 Button{
                     (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.changeRootViewController(SignIn())
                 }label: {
                     Text("Не зарегестрировались? Жмите!")
                 }.padding()
-            }
+            
            
-        }.background(.white)
+        }.background(Color(red: 0.118, green: 0.125, blue: 0.153))
        
       
         
+    }
+}
+
+struct OvalTextFieldStyle: TextFieldStyle {
+    func _body(configuration: TextField<Self._Label>) -> some View {
+        configuration
+            .padding(10)
+            .background(.white)
+            .cornerRadius(5)
     }
 }
 

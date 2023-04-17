@@ -20,6 +20,7 @@
 		81928B3229AD660800CBB641 /* WEB.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 81928B3029AD660800CBB641 /* WEB.xcdatamodeld */; };
 		81928B3429AD660900CBB641 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 81928B3329AD660900CBB641 /* Assets.xcassets */; };
 		81928B3729AD660900CBB641 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81928B3529AD660900CBB641 /* LaunchScreen.storyboard */; };
+		8199FCBC29EDC8E000CECA20 /* ColrHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8199FCBB29EDC8E000CECA20 /* ColrHelper.swift */; };
 		81A4B56029DB4A22002ABCF3 /* TovarDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81A4B55F29DB4A22002ABCF3 /* TovarDetailView.swift */; };
 		81C636AE29B8CC5F0041790F /* Catalog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81C636AD29B8CC5F0041790F /* Catalog.swift */; };
 		81C636B229B8CC780041790F /* Cart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81C636B129B8CC780041790F /* Cart.swift */; };
@@ -43,6 +44,7 @@
 		81928B3329AD660900CBB641 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		81928B3629AD660900CBB641 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		81928B3829AD660900CBB641 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8199FCBB29EDC8E000CECA20 /* ColrHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColrHelper.swift; sourceTree = "<group>"; };
 		81A4B55F29DB4A22002ABCF3 /* TovarDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TovarDetailView.swift; sourceTree = "<group>"; };
 		81C636AD29B8CC5F0041790F /* Catalog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Catalog.swift; sourceTree = "<group>"; };
 		81C636B129B8CC780041790F /* Cart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cart.swift; sourceTree = "<group>"; };
@@ -109,6 +111,7 @@
 				8159224829DAC25F00E589D1 /* Product.swift */,
 				81A4B55F29DB4A22002ABCF3 /* TovarDetailView.swift */,
 				81F0591829DC5E250046EE0A /* AddProduct.swift */,
+				8199FCBB29EDC8E000CECA20 /* ColrHelper.swift */,
 			);
 			path = WEB;
 			sourceTree = "<group>";
@@ -201,6 +204,7 @@
 				813F151329B7EA5A008EA28A /* ImInUI.swift in Sources */,
 				81928B2829AD660800CBB641 /* AppDelegate.swift in Sources */,
 				81928B3229AD660800CBB641 /* WEB.xcdatamodeld in Sources */,
+				8199FCBC29EDC8E000CECA20 /* ColrHelper.swift in Sources */,
 				81C636AE29B8CC5F0041790F /* Catalog.swift in Sources */,
 				81F0591929DC5E250046EE0A /* AddProduct.swift in Sources */,
 				81928B2A29AD660800CBB641 /* SceneDelegate.swift in Sources */,
