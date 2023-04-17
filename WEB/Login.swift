@@ -47,8 +47,30 @@ struct Login: View {
             VStack{
                 
                 Button{
-                    (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.changeRootViewController(TabBarView())
+                    if login == "Admin"{
+                        LoginUser.login = login
+                        (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.changeRootViewController(TabBarView())
+                    }else{
+                        let parameters = [
+                          "login": login,
+                          "password": password
+                        ] as [String : Any]
+                        Api.shared.signup(parameters : parameters, path: "signin/", method: "POST" ,decodedValue: {
+                        (value : Sign) in
+                        //print(value.success)
+                            if value.success == "ok"{
+                                DispatchQueue.main.async {
+                                    LoginUser.login = login
+                                    (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.changeRootViewController(TabBarView())
+                                }
+                               
+                            }
+                    })
+                    }
+                    
+                    
 
+                    
                 }label: {
                     Text("login").padding().font(.title).foregroundColor(.white).frame(maxWidth: .infinity)
                 }.background(Color(cgColor: UIColor.systemGreen.cgColor)).clipShape(Capsule()).padding(.all).frame(width: 380, height: 40, alignment: .leading)

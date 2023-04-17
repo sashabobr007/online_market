@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-
+import UIKit
 
 struct SignIn: View {
     
@@ -115,15 +115,29 @@ struct SignIn: View {
             VStack{
                 
                 Button{
-                    //print(login)
-                    //print(password)
+                    let dat = uiImage?.jpegData(compressionQuality: 0.1)
+
                     let formattedDate = date.formatted(date: .numeric, time: .omitted)
-                    //print(formattedDate)
-                    //let imageView = imageView as! LibraryImage
-                    //print(uiImage?.pngData()?.base64EncodedData(options: .endLineWithLineFeed))
-(UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.changeRootViewController(TabBarView())
+                    let parameters = [
+                        "login":  login,
+                        "password": password,
+                        "birtdate": formattedDate
+                    ] as [String : Any]
+                    Api.shared.signup(parameters : parameters, path: "signup/", method: "POST", decodedValue: {
+                    (value : Sign) in
+                    //print(value.success)
+                        DispatchQueue.main.async {
+                            Api.shared.send(imageData: dat ?? Data(), login: login)
+                            LoginUser.login = login
+                            (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.changeRootViewController(TabBarView())
+                        }
+
+                })
+                   
+                    
+
                 }label: {
-                    Text("Sign In").padding().font(.title).foregroundColor(.white).frame(maxWidth: .infinity)
+                    Text("Sign Up").padding().font(.title).foregroundColor(.white).frame(maxWidth: .infinity)
                 }.background(Color(cgColor: UIColor.systemGreen.cgColor)).clipShape(Capsule()).padding(.all).frame(width: 380, height: 40, alignment: .leading).padding(.bottom)
                
             }.frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: 100, alignment: .bottom)
